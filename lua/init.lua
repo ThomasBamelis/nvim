@@ -1,3 +1,3 @@
-require('keybinds')
-
 vim.g.mapleader = ","
+
+require('keybinds')
