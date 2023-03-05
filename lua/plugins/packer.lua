@@ -197,8 +197,36 @@ let g:vista#renderer#icons = {
     -- Sets up nvim-lspconfig for rust_analyzer and other rust stuff
   use {
   'simrat39/rust-tools.nvim',
+    requires = {
+      'neovim/nvim-lspconfig',
+      'nvim-lua/plenary.nvim',
+      'mfussenegger/nvim-dap',
+    }
   }
 
+    -- Sets up nvim-lspconfig for C/C++
+  use {
+    'p00f/clangd_extensions.nvim',
+  }
+
+  -- java
+  use {
+    'mfussenegger/nvim-jdtls',
+    config = function()
+      local config = {
+          cmd = {'jdtls'},
+          root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+      }
+      require('jdtls').start_or_attach(config)
+    end,
+    ft = 'java',
+  }
+
+  -- json
+  use "b0o/schemastore.nvim"
+
+  -- typescript
+  use 'jose-elias-alvarez/typescript.nvim'
 
   -------------------------------------------------------------------------------
   -- Debugging
