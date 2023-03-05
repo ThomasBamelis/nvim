@@ -1,2 +1,6 @@
 require('keybinds.navigation')
 require('keybinds.editing')
+require('keybinds.searching')
+require('keybinds.debugging')
+require('keybinds.code_completion')
+require('keybinds.code_navigation')
