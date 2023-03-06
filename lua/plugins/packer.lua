@@ -245,7 +245,12 @@ let g:vista#renderer#icons = {
 
   -- Color scheme
   -- :help gruvbox-material.txt
-  use 'sainnhe/gruvbox-material'
+  use {
+    'sainnhe/gruvbox-material',
+      config = function()
+        vim.cmd('colorscheme gruvbox-material')
+      end,
+  }
 
   -- Git plugin. :Git is like :!git but well integrated and much more
   -- :help fugitive
