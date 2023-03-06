@@ -20,3 +20,5 @@ vim.api.nvim_set_keymap('n', '<space>j', '<C-w>j', { noremap = true, silent = tr
 vim.api.nvim_set_keymap('n', '<space>k', '<C-w>k', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<space>l', '<C-w>l', { noremap = true, silent = true })
 
+-- Vista (list functions struct etc...)
+vim.api.nvim_set_keymap('n', '<space>c', '<cmd>Vista!!<cr>', { noremap = true, silent = true })
