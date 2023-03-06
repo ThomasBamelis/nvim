@@ -13,3 +13,6 @@ vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]]
 vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
 
 vim.api.nvim_set_keymap('n', '<Leader>l', '<Cmd>noh<CR>', kopts)
+
+-- LeaderF config
+vim.api.nvim_set_keymap('n', '<Leader>r', '<Cmd>Leaderf rg<CR>', kopts)
