@@ -159,7 +159,8 @@ return require('packer').startup(function(use)
             -- optional call to setup (see customization section)
             require("cmp_nvim_ultisnips").setup{}
           end,
-        }
+        },
+        'nvim-treesitter/nvim-treesitter',
     }
   }
 

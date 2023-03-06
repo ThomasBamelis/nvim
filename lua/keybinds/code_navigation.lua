@@ -1,7 +1,7 @@
 -- navigation using the syntax tree, like go to definition and so on
 local m = {}
 
-
+local rt = require("rust-tools")
 
 
 -- navigation from nvim lsp
