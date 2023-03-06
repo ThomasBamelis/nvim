@@ -3,6 +3,8 @@ local m = {}
 
 local rt = require("rust-tools")
 
+-- TODO see peek definition in packer.lua of nvim-treeset. It peeks at function
+-- with gf gF
 
 -- navigation from nvim lsp
 local opts = { noremap=true, silent=true }
