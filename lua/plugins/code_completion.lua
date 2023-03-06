@@ -49,6 +49,11 @@ local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 local cmp = require'cmp'
 
 cmp.setup({
+  -- needed for dap debugging
+  enabled = function()
+    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+        or require("cmp_dap").is_dap_buffer()
+  end,
   sources = cmp.config.sources({
     { name = "path" },
     { name = "buffer" },
@@ -107,4 +112,10 @@ cmp.setup.filetype('gitcommit', {
   }, {
     { name = 'buffer' },
   })
+})
+
+cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+  sources = {
+    { name = "dap" },
+  },
 })

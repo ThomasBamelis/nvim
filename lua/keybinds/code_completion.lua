@@ -10,3 +10,6 @@
             reject_key = '<Up>',
         })
 --]]
+--[[
+--see mappings field in plugins/code_completion.lua
+--]]

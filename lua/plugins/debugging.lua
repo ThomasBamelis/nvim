@@ -1,5 +1,22 @@
 -- per language can be found here: https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
 
+--[[
+A typical debug flow consists of:
+
+Setting breakpoints via :lua require'dap'.toggle_breakpoint().
+Launching debug sessions and resuming execution via :lua require'dap'.continue().
+Stepping through code via :lua require'dap'.step_over() and :lua require'dap'.step_into().
+Inspecting the state via the built-in REPL: :lua require'dap'.repl.open() or using the widget UI (:help dap-widgets)
+See :help dap.txt, :help dap-mapping and :help dap-api.
+--]]
+
+--[[
+sudo apt install lldb
+python -m pip install debugpy
+--]]
+
+-- TO INSTALL MORE DEBUGGERS FOR LANGUAGES https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
+
 -----------------------------------------------------------------------
 -- Rust and C/C++
 -----------------------------------------------------------------------
@@ -7,11 +24,10 @@
 local dap = require('dap')
 dap.adapters.lldb = {
   type = 'executable',
-  command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
+  command = 'lldb-vscode', -- adjust as needed, must be absolute path
   name = 'lldb'
 }
 
-local dap = require('dap')
 dap.configurations.cpp = {
   {
     name = 'Launch',
@@ -52,21 +68,14 @@ dap.configurations.rust = dap.configurations.cpp
 
 -----------------------------------------------------------------------
 -- Python
---
--- requires:
--- mkdir .virtualenvs
--- cd .virtualenvs
--- python -m venv debugpy
--- debugpy/bin/python -m pip install debugpy
+-- python -m pip install debugpy
 -----------------------------------------------------------------------
 
-local dap = require('dap')
 dap.adapters.python = {
   type = 'executable';
-  command = 'path/to/virtualenvs/debugpy/bin/python';
+  command = 'python';
   args = { '-m', 'debugpy.adapter' };
 }
-local dap = require('dap')
 dap.configurations.python = {
   {
     -- The first three options are required by nvim-dap

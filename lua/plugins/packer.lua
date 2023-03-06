@@ -222,6 +222,10 @@ return require('packer').startup(function(use)
           end,
         },
         'nvim-treesitter/nvim-treesitter',
+        -- For debugger integration
+        {
+          'rcarriga/cmp-dap'
+        },
     }
   }
 
@@ -357,7 +361,7 @@ let g:vista#renderer#icons = {
       config = function()
           require('lualine').setup {
               options = {
-                  theme = 'gruvbox-material' 
+                  theme = 'gruvbox-material'
             }
           }
       end,
@@ -530,9 +534,9 @@ let g:vista#renderer#icons = {
         options = {
           numbers = "buffer_id",
           close_command = "bdelete! %d",
-          right_mouse_command = nil,
+          --right_mouse_command = nil,
           left_mouse_command = "buffer %d",
-          middle_mouse_command = nil,
+          --middle_mouse_command = nil,
           indicator = {
             icon = "▎", -- this should be omitted if indicator style is not 'icon'
             style = "icon",
@@ -575,6 +579,37 @@ let g:vista#renderer#icons = {
     end,
   }
 
+  -- auto saving
+  use {
+   'Pocco81/auto-save.nvim',
+    config = function()
+        require("auto-save").setup {
+          trigger_events = {"InsertLeave", "TextChanged"}, -- vim events that trigger auto-save. See :h events
+          write_all_buffers = false, -- write all buffers when the current one meets `condition`,
+          execution_message = {
+            message = function() -- message to print on save
+              return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
+            end,
+            dim = 0.18, -- dim the color of `message`
+            cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
+          },
+          -- function that determines whether to save the current buffer or not
+          -- return true: if buffer is ok to be saved
+          -- return false: if it's not ok to be saved
+          condition = function(buf)
+            local fn = vim.fn
+            local utils = require("auto-save.utils.data")
+
+            if
+              fn.getbufvar(buf, "&modifiable") == 1 and
+              utils.not_in(fn.getbufvar(buf, "&filetype"), {}) then
+              return true -- met condition(s), can save
+            end
+            return false -- can't save
+          end,
+        }
+    end,
+  }
 
   -- Automatically sync (update/install) plugins after packer is cloned
   -- for the first time.
