@@ -144,6 +144,15 @@ return require('packer').startup(function(use)
               },
             },
             textobjects = {
+                lsp_interop = {
+                  enable = true,
+                  border = 'none',
+                  floating_preview_opts = {},
+                  peek_definition_code = {
+                    ["gf"] = "@function.outer",
+                    ["gF"] = "@class.outer",
+                  },
+                },
               select = {
                 enable = true,
                 lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
