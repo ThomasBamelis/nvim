@@ -128,6 +128,67 @@ return require('packer').startup(function(use)
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
         end,
+        config = function()
+          require('nvim-treesitter.configs').setup {
+            ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'help', 'vim' },
+            auto_install = true,
+            highlight = { enable = true },
+            indent = { enable = true, disable = { 'python' } },
+            incremental_selection = {
+              enable = true,
+              keymaps = {
+                init_selection = '<c-space>',
+                node_incremental = '<c-space>',
+                scope_incremental = '<c-s>',
+                node_decremental = '<M-space>',
+              },
+            },
+            textobjects = {
+              select = {
+                enable = true,
+                lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+                keymaps = {
+                  -- You can use the capture groups defined in textobjects.scm
+                  ['aa'] = '@parameter.outer',
+                  ['ia'] = '@parameter.inner',
+                  ['af'] = '@function.outer',
+                  ['if'] = '@function.inner',
+                  ['ac'] = '@class.outer',
+                  ['ic'] = '@class.inner',
+                },
+              },
+              move = {
+                enable = true,
+                set_jumps = true, -- whether to set jumps in the jumplist
+                goto_next_start = {
+                  [']m'] = '@function.outer',
+                  [']]'] = '@class.outer',
+                },
+                goto_next_end = {
+                  [']M'] = '@function.outer',
+                  [']['] = '@class.outer',
+                },
+                goto_previous_start = {
+                  ['[m'] = '@function.outer',
+                  ['[['] = '@class.outer',
+                },
+                goto_previous_end = {
+                  ['[M'] = '@function.outer',
+                  ['[]'] = '@class.outer',
+                },
+              },
+              swap = {
+                enable = true,
+                swap_next = {
+                  ['<leader>a'] = '@parameter.inner',
+                },
+                swap_previous = {
+                  ['<leader>A'] = '@parameter.inner',
+                },
+              },
+            },
+          }
+        end,
     }
 
   -- Adds language server functionality frontend to neovim
@@ -457,6 +518,62 @@ let g:vista#renderer#icons = {
   -- Get vim tip at startup
   use 'michaelb/vim-tips'
 
+  -- Line at top with all buffers
+  -- using packer.nvim
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "v3.*",
+    requires = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      vim.opt.termguicolors = true
+      require("bufferline").setup{
+        options = {
+          numbers = "buffer_id",
+          close_command = "bdelete! %d",
+          right_mouse_command = nil,
+          left_mouse_command = "buffer %d",
+          middle_mouse_command = nil,
+          indicator = {
+            icon = "▎", -- this should be omitted if indicator style is not 'icon'
+            style = "icon",
+          },
+          buffer_close_icon = "",
+          modified_icon = "●",
+          close_icon = "",
+          left_trunc_marker = "",
+          right_trunc_marker = "",
+          max_name_length = 18,
+          max_prefix_length = 15,
+          tab_size = 10,
+          diagnostics = "nvim_lsp",
+          custom_filter = function(bufnr)
+            -- if the result is false, this buffer will be shown, otherwise, this
+            -- buffer will be hidden.
+
+            -- filter out filetypes you don't want to see
+            local exclude_ft = { "qf", "fugitive", "git" }
+            local cur_ft = vim.bo[bufnr].filetype
+            local should_filter = vim.tbl_contains(exclude_ft, cur_ft)
+
+            if should_filter then
+              return false
+            end
+
+            return true
+          end,
+          show_buffer_icons = false,
+          show_buffer_close_icons = true,
+          show_close_icon = true,
+          show_tab_indicators = true,
+          persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
+          separator_style = "bar",
+          enforce_regular_tabs = false,
+          always_show_bufferline = true,
+          sort_by = "id",
+        },
+      }
+    end,
+  }
 
 
   -- Automatically sync (update/install) plugins after packer is cloned
