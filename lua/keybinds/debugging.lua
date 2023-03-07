@@ -9,7 +9,7 @@ See :help dap.txt, :help dap-mapping and :help dap-api.
 
 local opts = { noremap=true, silent=true }
 local dap = require'dap'
-opts.desc = 'toggel breakpoints'
+opts.desc = 'toggle breakpoints'
 vim.keymap.set('n', '<leader>dp', dap.toggle_breakpoint, opts)
 opts.desc = 'Launch or continue'
 vim.keymap.set('n', '<leader>dc', dap.continue, opts)
