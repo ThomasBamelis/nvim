@@ -31,14 +31,14 @@ vim.api.nvim_set_keymap('n', '<space>l', '<C-w>l', opts)
 -- resize windows
 -- heigth
 opts.desc = 'Increase window height'
-vim.api.nvim_set_keymap('n', '<space>n', '20<C-w>+', opts)
+vim.api.nvim_set_keymap('n', '<space>n', '3<C-w>+', opts)
 opts.desc = 'Decrease window height'
-vim.api.nvim_set_keymap('n', '<space>m', '20<C-w>-', opts)
+vim.api.nvim_set_keymap('n', '<space>m', '3<C-w>-', opts)
 -- width (space <> without shift)
 opts.desc = 'Increase window width'
-vim.api.nvim_set_keymap('n', '<space>.', '20<C-w>>', opts)
+vim.api.nvim_set_keymap('n', '<space>.', '3<C-w>>', opts)
 opts.desc = 'Decrease window width'
-vim.api.nvim_set_keymap('n', '<space>,', '20<C-w><', opts)
+vim.api.nvim_set_keymap('n', '<space>,', '3<C-w><', opts)
 opts.desc = 'Make all windows same width and height'
 vim.api.nvim_set_keymap('n', '<space>=', '<C-w>=', opts)
 
