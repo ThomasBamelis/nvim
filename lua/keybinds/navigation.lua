@@ -30,9 +30,12 @@ vim.api.nvim_set_keymap('n', '<space>,', '20<C-w><', { noremap = true, silent = 
 vim.api.nvim_set_keymap('n', '<space>=', '<C-w>=', { noremap = true, silent = true })
 
 -- Vista (list functions struct etc...)
+-- :help vista-commands
+-- :help vista-options
 vim.api.nvim_set_keymap('n', '<space>c', '<cmd>Vista!!<cr>', { noremap = true, silent = true })
 
 -- file explorer
+-- When you are in the window, do 'g?' for it to show the commands to do stuff. Adding a file is a etc...
 vim.api.nvim_set_keymap('n', '<space>f', '<cmd>NvimTreeToggle<cr>', { noremap = true, silent = true })
 --vim.api.nvim_set_keymap('n', '<space>F', '<cmd>NvimTreeFocus<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<space>F', '<cmd>NvimTreeFindFile<cr>', { noremap = true, silent = true })
