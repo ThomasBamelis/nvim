@@ -46,7 +46,7 @@ vim.opt.shiftround = true
 vim.opt.virtualedit = 'block'    -- Virtual edit is useful for visual block edit
 
 vim.opt.spelllang = { 'en' }     -- Spell languages
-vim.opt.spellsuggest:append('3') -- show 3 spell suggestions at most
+vim.opt.spellsuggest:append('1') -- show 3 spell suggestions at most
 
 
 

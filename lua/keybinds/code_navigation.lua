@@ -46,7 +46,8 @@ function m.on_attach(client, bufnr)
   -- rename symbol
   vim.keymap.set('n', 'gn', vim.lsp.buf.rename, bufopts)
   -- do code action
-  vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, bufopts)
+  --vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'ga', '<cmd>CodeActionMenu<cr>', bufopts)
   -- go to references
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   -- format

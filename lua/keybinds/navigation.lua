@@ -19,6 +19,21 @@ vim.api.nvim_set_keymap('n', '<space>h', '<C-w>h', { noremap = true, silent = tr
 vim.api.nvim_set_keymap('n', '<space>j', '<C-w>j', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<space>k', '<C-w>k', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<space>l', '<C-w>l', { noremap = true, silent = true })
+-- resize windows
+-- heigth
+vim.api.nvim_set_keymap('n', '<space>n', '20<C-w>+', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<space>m', '20<C-w>-', { noremap = true, silent = true })
+-- width (space <> without shift)
+vim.api.nvim_set_keymap('n', '<space>.', '20<C-w>>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<space>,', '20<C-w><', { noremap = true, silent = true })
+-- make all windows same width and height
+vim.api.nvim_set_keymap('n', '<space>=', '<C-w>=', { noremap = true, silent = true })
 
 -- Vista (list functions struct etc...)
 vim.api.nvim_set_keymap('n', '<space>c', '<cmd>Vista!!<cr>', { noremap = true, silent = true })
+
+-- file explorer
+vim.api.nvim_set_keymap('n', '<space>f', '<cmd>NvimTreeToggle<cr>', { noremap = true, silent = true })
+--vim.api.nvim_set_keymap('n', '<space>F', '<cmd>NvimTreeFocus<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<space>F', '<cmd>NvimTreeFindFile<cr>', { noremap = true, silent = true })
+--vim.api.nvim_set_keymap('n', '<space>c', '<cmd>NvimTreeCollapse<cr>', { noremap = true, silent = true })
