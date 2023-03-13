@@ -668,6 +668,23 @@ let g:vista#renderer#icons = {
     --tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
+  -- floating terminal
+  -- Use :FloatermNew to open a terminal window, use :FloatermToggle to hide/reopen that. The filetype of the terminal buffer is floaterm.
+  -- If you've opened multiple floaterm instances, they will be attached to a double-circular-linkedlist. Then you can use :FloatermNext or : FloatermPrev to switch between them
+  use {
+    'voldikss/vim-floaterm',
+    config = function()
+      vim.g.floaterm_wintype = 'float'
+      vim.g.floaterm_width = 0.7
+      vim.g.floaterm_height = 0.7
+      vim.g.floaterm_position = 'topright'
+      -- Markers used to detect the project root directory for --cwd=<root>
+      vim.g.floaterm_rootmarkers = {'.project', '.git', '.hg', '.svn', '.root'}
+      vim.g.floaterm_giteditor = true
+      vim.g.floaterm_autoclose = 0
+    end,
+  }
+
   -- Automatically sync (update/install) plugins after packer is cloned
   -- for the first time.
   -- Put this at the end after all plugins
