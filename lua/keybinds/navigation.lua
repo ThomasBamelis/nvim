@@ -63,3 +63,5 @@ opts.desc = 'Toggle floating terminal in normal mode'
 vim.keymap.set({'n'}, '<space>t', '<cmd>FloatermToggle --name=mainterm<cr>', opts)
 opts.desc = 'Toggle floating terminal in the terminal'
 vim.keymap.set({'t'}, '<C-q>', '<cmd>FloatermToggle --name=mainterm<cr>', opts)
+opts.desc = 'Get Normal mode in terminal window'
+vim.keymap.set({'t'}, '<Esc>', '<C-\\><C-N>', opts)
