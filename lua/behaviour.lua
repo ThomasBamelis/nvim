@@ -124,3 +124,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Don't replace clipboard when pasting in visual
 vim.keymap.set("x", "p", function() return 'pgv"' .. vim.v.register .. "y" end, { remap = false, expr = true })
+
+-- Put word in single quotes (ciw, delete word under cursor, ', C-r" (paste las word), '. Use register 8 for it
+vim.keymap.set("n", "<leader>'", [[ciw'<C-r>-'<Esc>]], { remap = false, expr = false, desc='Put word under curser in singel quotes'})
