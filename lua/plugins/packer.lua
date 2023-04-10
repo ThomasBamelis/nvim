@@ -130,9 +130,13 @@ return require('packer').startup(function(use)
         end,
         config = function()
           require('nvim-treesitter.configs').setup {
-            ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
+            ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim', 'markdown'},
             auto_install = true,
-            highlight = { enable = true },
+            highlight = {
+              enable = true,
+              disable = { "latex" },
+              additional_vim_regex_highlighting = { "latex", "markdown" },
+            },
             indent = { enable = true, disable = { 'python' } },
             incremental_selection = {
               enable = true,
@@ -314,6 +318,7 @@ let g:vista#renderer#icons = {
       vim.g.code_action_menu_show_action_kind = true
     end,
   })
+
   -------------------------------------------------------------------------------
   -- Debugging
   -------------------------------------------------------------------------------
@@ -535,7 +540,7 @@ let g:vista#renderer#icons = {
     'kevinhwang91/nvim-bqf',
     ft = 'qf',
     config = function()
-      require("nvim-bqf").setup {
+      require("bqf").setup {
       }
     end,
   }
@@ -684,6 +689,20 @@ let g:vista#renderer#icons = {
       vim.g.floaterm_giteditor = true
       vim.g.floaterm_autoclose = 0
     end,
+  }
+
+  -- Latex
+  use {
+    'lervag/vimtex',
+    config = function()
+      -- viewer
+      if vim.fn.has('macunix') or vim.fn.has('unix') then
+        vim.g.vimtex_view_method = 'zathura'
+      end
+      -- require("vimtex").setup({
+      --   maplocalleader = ','
+      -- })
+    end
   }
 
   -- Automatically sync (update/install) plugins after packer is cloned

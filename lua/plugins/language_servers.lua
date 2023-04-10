@@ -6,7 +6,7 @@
 -- INSTALL THE LANGUAGE SERVERS ON YOUR MACHINE
 --[[
 python -m pip install pynvim pyright cmake-language-server hdl-checker
-sudo apt install rust-analyzer jdtls clangd universal-ctags
+sudo apt install rust-analyzer jdtls clangd universal-ctags zathura-plugins-all zathura
 npm install -g @ansible/ansible-language-server bash-language-server @microsoft/compose-language-service dockerfile-language-server-nodejs vscode-langservers-extracted typescript-language-server
 cargo install asm-lsp
 rustup component add rust-src
@@ -284,5 +284,19 @@ require('lspconfig')['r_language_server'].setup{
     flags = lsp_flags,
     capabilities = capabilities,
 }
+
+-------------------------------------------------------------------------------------------------
+-- Latex
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#texlab
+-- https://github.com/latex-lsp/texlab
+-------------------------------------------------------------------------------------------------
+
+require('lspconfig')['texlab'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+}
+
+
 
 -- TODO set vista ctags cmd and executives
