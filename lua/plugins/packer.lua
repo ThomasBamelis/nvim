@@ -406,6 +406,7 @@ let g:vista#renderer#icons = {
   -- Completion for : and /
   use {
       'gelguy/wilder.nvim',
+      requires = { 'roxma/nvim-yarp' },
       config = function()
         local wilder = require('wilder')
         wilder.setup({

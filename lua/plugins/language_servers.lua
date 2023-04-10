@@ -5,7 +5,7 @@
 
 -- INSTALL THE LANGUAGE SERVERS ON YOUR MACHINE
 --[[
-pip install pyright cmake-language-server hdl-checker
+python -m pip install pynvim pyright cmake-language-server hdl-checker
 sudo apt install rust-analyzer jdtls clangd universal-ctags
 npm install -g @ansible/ansible-language-server bash-language-server @microsoft/compose-language-service dockerfile-language-server-nodejs vscode-langservers-extracted typescript-language-server
 cargo install asm-lsp
