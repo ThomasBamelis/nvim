@@ -130,7 +130,7 @@ return require('packer').startup(function(use)
         end,
         config = function()
           require('nvim-treesitter.configs').setup {
-            ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'help', 'vim' },
+            ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
             auto_install = true,
             highlight = { enable = true },
             indent = { enable = true, disable = { 'python' } },
