@@ -688,6 +688,9 @@ let g:vista#renderer#icons = {
       vim.g.floaterm_rootmarkers = {'.project', '.git', '.hg', '.svn', '.root'}
       vim.g.floaterm_giteditor = true
       vim.g.floaterm_autoclose = 0
+      -- vim.cmd("FloatermNew --silent --title=mainterm --name=mainterm")
+      -- vim.cmd("FloatermNew --silent --title=compileterm --name=compileterm")
+      -- vim.cmd("FloatermNew --silent --title=scratchterm --name=scratchterm")
     end,
   }
 

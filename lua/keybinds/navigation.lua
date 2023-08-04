@@ -59,9 +59,22 @@ vim.keymap.set('n', '<space>F', '<cmd>NvimTreeFindFile<cr>', opts)
 
 
 -- Floating terminal
+-- vim.cmd("FloatermNew --silent --title=mainterm --name=mainterm")
+-- vim.cmd("FloatermNew --silent --title=compileterm --name=compileterm")
+-- vim.cmd("FloatermNew --silent --title=scratchterm --name=scratchterm")
+opts.desc = 'Floaterm startup'
+vim.keymap.set({'n'}, '<space>T', '<cmd>FloatermNew --silent --title=mainterm\\ (1/3) --name=mainterm<cr><cmd>FloatermNew --silent --title=compileterm\\ (2/3) --name=compileterm<cr><cmd>FloatermNew --silent --title=scratchterm\\ (3/3) --name=scratchterm<cr>', opts)
 opts.desc = 'Toggle floating terminal in normal mode'
-vim.keymap.set({'n'}, '<space>t', '<cmd>FloatermToggle --name=mainterm<cr>', opts)
+vim.keymap.set({'n'}, '<space>t', '<cmd>FloatermToggle!<cr><cmd>FloatermFirst<cr>', opts)
 opts.desc = 'Toggle floating terminal in the terminal'
-vim.keymap.set({'t'}, '<C-q>', '<cmd>FloatermToggle --name=mainterm<cr>', opts)
+vim.keymap.set({'t'}, '<C-q>', '<cmd>FloatermToggle!<cr>', opts)
+opts.desc = 'Switch to next terminal'
+vim.keymap.set({'t'}, '<C-n>', '<cmd>FloatermNext<cr>', opts)
+opts.desc = 'Switch to previous terminal'
+vim.keymap.set({'t'}, '<C-b>', '<cmd>FloatermPrev<cr>', opts)
+-- opts.desc = 'Toggle floating terminal in normal mode'
+-- vim.keymap.set({'n'}, '<space>t', '<cmd>FloatermToggle --name=mainterm<cr>', opts)
+-- opts.desc = 'Toggle floating terminal in the terminal'
+-- vim.keymap.set({'t'}, '<C-q>', '<cmd>FloatermToggle --name=mainterm<cr>', opts)
 opts.desc = 'Get Normal mode in terminal window'
 vim.keymap.set({'t'}, '<Esc>', '<C-\\><C-N>', opts)
