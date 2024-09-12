@@ -551,8 +551,10 @@ let g:vista#renderer#icons = {
   -- Line at top with all buffers
   -- using packer.nvim
   use {
+    --'Theyashsawarkar/bufferline.nvim',
     'akinsho/bufferline.nvim',
-    tag = "v3.*",
+    --commit = "f4b4b98",
+    --tag = "",
     requires = 'nvim-tree/nvim-web-devicons',
     config = function()
       vim.opt.termguicolors = true

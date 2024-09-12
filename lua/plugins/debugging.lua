@@ -24,8 +24,14 @@ python -m pip install debugpy
 local dap = require('dap')
 dap.adapters.lldb = {
   type = 'executable',
-  command = 'lldb-vscode', -- adjust as needed, must be absolute path
+  command = '/usr/bin/lldb-vscode-14', -- adjust as needed, must be absolute path
   name = 'lldb'
+}
+
+dap.adapters.rt_lldb = {
+  type = 'executable',
+  command = '/usr/bin/lldb-vscode-14', -- adjust as needed, must be absolute path
+  name = 'rt_lldb'
 }
 
 dap.configurations.cpp = {
