@@ -32,6 +32,9 @@ opt.shiftwidth = 2
 opt.softtabstop = 2
 opt.expandtab = true
 
+-- Always show tabs
+opt.showtabline = 2
+
 -- no swap files
 opt.swapfile = false
 

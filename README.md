@@ -19,13 +19,16 @@ LocalLeader = ,
 | alt/option + {jk}| Move lines up or down |
 | Leader + {-\|}       | Split windows |
 | Leader + w       | Windows |
-| Leader + b       | Buffers |
+| Leader + b       | Buffers (bufferline) |
+| Leader + B       | Buffers (DONT USE -> bufferline) |
 | Leader + \<tab\>   | Tabs |
 | Leader + L       | lazy.nvim   |
 | Leader + l       | Location list |
-| Leader + f       | Quickfix list |
+| Leader + F       | Quickfix list |
 | Leader + d       | Diagnostics list |
 | Leader + q       | Quiting things |
+| Leader + n       | Notification (noice and nvim-notify) |
+| Leader + a       | File explorer (neo-tree)|
 | s                | search/find |
 |                  |             |
 

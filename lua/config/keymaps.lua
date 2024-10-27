@@ -30,17 +30,18 @@ map("n", "<leader>w<Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase W
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
 -- buffers
-map("n", "<leader>b", "<leader>b", { desc = "Buffers" }) -- For which key
-map("n", "<C-o>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "<C-i>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "<leader>bp", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "<leader>bn", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-map("n", "<leader>bd", "<cmd>:bp<bar>sp<bar>bn<bar>bd<CR>", { desc = "Delete Buffer" })
-map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
+-- We do not use Neovim buffers, but the bufferline plugin, see its config file for keybinds
+map("n", "<leader>B", "<leader>b", { desc = "Buffers (DONT USE: neovim)" }) -- For which key
+--map("n", "<C-o>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+--map("n", "<C-i>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "<leader>Bp", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+map("n", "<leader>Bn", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+--map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+--map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "<leader>Bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+--map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>Bd", "<cmd>:bp<bar>sp<bar>bn<bar>bd<CR>", { desc = "Delete Buffer" })
+map("n", "<leader>BD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
 -- tabs
 map("n", "<leader><tab>", "<leader><tab>", { desc = "Tabs" }) -- For which key
@@ -80,16 +81,16 @@ map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
 map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 
 -- Quickfixing
-map("n", "<leader>f", "<leader>f", { desc = "Quickfix List" }) -- For which key
-map("n", "<leader>fo", vim.cmd.copen, { desc = "Open Quickfix List" })
-map("n", "<leader>fk", vim.cmd.cprev, { desc = "Previous Quickfix" })
+map("n", "<leader>F", "<leader>F", { desc = "Quickfix List" }) -- For which key
+map("n", "<leader>Fo", vim.cmd.copen, { desc = "Open Quickfix List" })
+map("n", "<leader>Fk", vim.cmd.cprev, { desc = "Previous Quickfix" })
 map("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
-map("n", "<leader>fj", vim.cmd.cnext, { desc = "Next Quickfix" })
+map("n", "<leader>Fj", vim.cmd.cnext, { desc = "Next Quickfix" })
 map("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
-map("n", "<leader>ff", vim.cmd.cfirst, { desc = "First Quickfix" })
-map("n", "<leader>fl", vim.cmd.clast, { desc = "Last Quickfix" })
-map("n", "<leader>fq", vim.cmd.cclose, { desc = "Close Quickfix list" })
-map("n", "<leader>fg", "<cmd>.cc<cr>", { desc = "Goto quickfix under cursor" })
+map("n", "<leader>Ff", vim.cmd.cfirst, { desc = "First Quickfix" })
+map("n", "<leader>Fl", vim.cmd.clast, { desc = "Last Quickfix" })
+map("n", "<leader>Fq", vim.cmd.cclose, { desc = "Close Quickfix list" })
+map("n", "<leader>Fg", "<cmd>.cc<cr>", { desc = "Goto quickfix under cursor" })
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)
@@ -138,6 +139,7 @@ map("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit All" })
 map("n", "<leader>qq", "<cmd>q<cr>", { desc = "Quit :q" })
 map("n", "<leader>qw", "<C-W>c", { desc = "Close window", remap = true })
 map("n", "<leader>qb", "<cmd>:bp<bar>sp<bar>bn<bar>bd<CR>", { desc = "Delete Buffer" })
+map("n", "<leader>qB", "<cmd>:bp<bar>sp<bar>bn<bar>bd<CR>", { desc = "Delete Buffer" })
 map("n", "<leader>qt", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
 -- highlights under cursor
