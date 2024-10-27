@@ -3,6 +3,23 @@ My neovim config
 
 ## What to install
 ### MAC
+
+The default mac terminal does not support truecolor.
+You must use someting else.
+I like Kitty.
+`brew install --cask kitty`
+then find it in the applications folder and start it.
+Download the firacode nerd font:
+https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
+Unzip it and open `font book`.
+Then file -> Add font to current user, and select all fonts in the unzipped FiraCode folder.
+Then open Kitty, press Kitty -> Settings... and change to font:
+`#font_family mononoki`
+To
+`font_family FiraCode Nerd Font Mono`
+And change to font size so you don't go blind
+`font_size 16.0`
+
 ```
 # Node.js provider
 brew install node

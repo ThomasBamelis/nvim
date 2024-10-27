@@ -139,18 +139,14 @@ opt.pumheight = 10 -- Maximum number of items to show in popup menu
 --opt.pumblend = 10 -- pseudo transparency for completion menu
 --opt.winblend = 0 -- pseudo transparency for floating window
 
--- Align indent to next multiple value of shiftwidth. For its meaning,
--- see http://vim.1045645.n5.nabble.com/shiftround-option-td5712100.html
-opt.shiftround = true
-
 opt.virtualedit = "block" -- Virtual edit is useful for visual block edit
 
 opt.spelllang = { "en" } -- Spell languages
 opt.spellsuggest:append("1") -- show 1 spell suggestions at most
 
 -- Enable true color support.
--- Makes it crash?
---opt.termguicolors = true
+-- Makes it crash for default mac terminal which does not support truecolor
+opt.termguicolors = true
 
 -- Set up cursor color and shape in various mode, ref:
 -- https://github.com/neovim/neovim/wiki/FAQ#how-to-change-cursor-color-in-the-terminal
