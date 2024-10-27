@@ -18,9 +18,8 @@ vim.opt.rtp:prepend(lazypath)
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
+require("config.behaviour")
 require("config.keymaps")
--- TODO: merge options with behaviour.lua
-require("config.options")
 require("config.autocmds")
 
 -- Setup lazy.nvim

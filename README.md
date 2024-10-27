@@ -16,7 +16,10 @@ brew link perl
 cpanm -n Neovim::Ext
 
 # Python neovim plugin
-python3 -m pip install neovim
+cd ~/.config/nvim
+python3 -m venv venv
+source venv/bin/python3
+python3 -m pip install neovim pynvim flake8
 
 # Ruby provider
 brew install ruby
@@ -42,23 +45,30 @@ Press these shortcuts and wait for help to show of specific commands.
 
 In normal mode:
  - Spacebar is for windows and plugin windows
- - g is for smart code stuff (go to definition,...)
- - Leader ',' is for buffer navigation and other miscellanious stuff
  - Show the help of a symbol (documentation) with shift+k (K)
 
 ## Plugins
-All plugins are in lua/plugins/packer.lua
+All plugins are in lua/plugins/
 
 See their Github pages on how to use them.
 The `config = function()` will execute when the plugin is loaded
 and does the startup (setup function) and configuration.
 
-Language servers are where nvim-lsp is configured.
-Code completion is where nvim-cmp is configured.
+Lazy.nvim gives the opts and keys for setting the options and keymaps without calling config.
+
+## Language servers
+Language servers are configured in lua/plugins/coding/language-servers.
+We use 5 plugins for that:
+- mason: installs the language servers. 
+- mason-lspconfig: makes the mason language servers ready for nvim-lspconfig
+- nvim-lspconfig: uses and configures the language servers
+- nvim-treesitter: syntax highlighting
+- nvim-cmp: provides the completion
+
+To add a language you have to add it to the ensure_installed of mason-lspconfig, nvim-lspconfig and nvim-treesitter.
 
 ## Searching
-The exit LeaderF popup do <ESC>.
-To start scrolling through suggestions do <TAB> (you can't exit from there with <ESC>, do <TAB> again to be able to exit).
+Telescope, todo,...
 
 ## Guides
 

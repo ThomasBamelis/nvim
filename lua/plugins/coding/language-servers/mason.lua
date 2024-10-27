@@ -14,6 +14,10 @@ return {
 					package_uninstalled = "",
 				},
 			},
+			ensure_installed = {
+				"stylua", -- lua
+				"shfmt", -- sh
+			},
 		},
 		---@param opts MasonSettings | {ensure_installed: string[]}
 		--config = function(_, opts)
@@ -47,8 +51,6 @@ return {
 		dependencies = { "williamboman/mason.nvim" },
 		opts = {
 			ensure_installed = {
-				"stylua", -- lua
-				"shfmt", -- sh
 				"bashls", -- bash
 				"pyright", -- python
 				"asm_lsp", -- assembly
