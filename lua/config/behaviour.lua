@@ -1,51 +1,10 @@
 -- Leader keys
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = ","
 -- Install python3 env with pynvim, neovim and flake8 in config dir with name venv
 vim.g.python3_host_prog = vim.fn.stdpath("config") .. "/venv/bin/python3"
 
 -- gc in visual will comment out the visual block
-
--- Go to start or end of line easier
-vim.api.nvim_set_keymap("x", "H", "^", { desc = "First character in line" })
-vim.api.nvim_set_keymap("n", "H", "^", { desc = "First character in line" })
-vim.api.nvim_set_keymap("n", "L", "g_", { desc = "Last character in line" })
-vim.api.nvim_set_keymap("x", "L", "g_", { desc = "Last character in line" })
-
--- Continuous visual shifting (does not exit Visual mode), `gv` means
--- to reselect previous visual area, see https://superuser.com/q/310417/736190
-vim.api.nvim_set_keymap("x", "<", "<gv", { desc = "Shift left" })
-vim.api.nvim_set_keymap("x", ">", ">gv", { desc = "Shift right" })
-
--- Toggle spell checking
-vim.api.nvim_set_keymap("n", "<F11>", "<cmd>set spell!<cr>", { desc = "toggle spell" })
-vim.api.nvim_set_keymap("i", "<F11>", "<c-o><cmd>set spell!<cr>", { desc = "toggle spell" })
-
--- Remove trailing whitespace characters
-vim.api.nvim_set_keymap("n", "<leader><space>", "<cmd>StripTrailingWhitespace<cr>", { desc = "remove trailing space" })
-
--- Keep cursor position after yanking
--- I think this bugs out sometimes
---vim.api.nvim_set_keymap("n", "y", "myy", { desc = "Yank" })
-
--- Move the cursor based on physical lines, not the actual lines.
-vim.api.nvim_set_keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
-vim.api.nvim_set_keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
-vim.api.nvim_set_keymap("n", "^", "g^", { desc = "toggle spell" })
-vim.api.nvim_set_keymap("n", "0", "g0", { desc = "toggle spell" })
-
--- Don't replace clipboard when pasting in visual
-vim.keymap.set("x", "p", function()
-	return 'pgv"' .. vim.v.register .. "y"
-end, { remap = false, expr = true })
-
--- Put word in single quotes (ciw, delete word under cursor, ', C-r" (paste las word), '. Use register 8 for it
-vim.keymap.set(
-	"n",
-	"<leader>'",
-	[[ciw'<C-r>-'<Esc>]],
-	{ remap = false, expr = false, desc = "Put word under curser in singel quotes" }
-)
 
 -- root dir detection
 -- Each entry can be:

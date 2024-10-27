@@ -1,6 +1,34 @@
 # nvim
 My neovim config
 
+## Keybinds
+The biggest problem with using vim is remembering the keybinds.
+But don't worry, the plugin which-key.nvim will show you what happens for different keys after you press the leader key!
+That still can get messy, so record in this table the logical subcategories and stick to them.
+
+Leader = Spacebar
+LocalLeader = ,
+
+| Key after leader | subcategory |
+| ---------------- | ----------- |
+| Ctrl + {hjkl}    | Move between open windows and nvim terminal|
+| Ctrl + {io}      | Move between buffers |
+| Ctrl (+ Option on mac) + arrow keys| Resize current window |
+| Ctrl + {s}       | Save file |
+| < >              | indenting lines |
+| alt/option + {jk}| Move lines up or down |
+| Leader + {-\|}       | Split windows |
+| Leader + w       | Windows |
+| Leader + b       | Buffers |
+| Leader + \<tab\>   | Tabs |
+| Leader + L       | lazy.nvim   |
+| Leader + l       | Location list |
+| Leader + f       | Quickfix list |
+| Leader + d       | Diagnostics list |
+| Leader + q       | Quiting things |
+| s                | search/find |
+|                  |             |
+
 ## What to install
 ### MAC
 
@@ -19,6 +47,8 @@ To
 `font_family FiraCode Nerd Font Mono`
 And change to font size so you don't go blind
 `font_size 16.0`
+And set the option key to be used as alt (so or \<A-x\> keybinds work)
+`mac_option_as_alt yes`
 
 ```
 # Node.js provider
