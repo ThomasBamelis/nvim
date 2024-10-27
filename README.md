@@ -1,6 +1,42 @@
 # nvim
 My neovim config
 
+## What to install
+### MAC
+```
+# Node.js provider
+brew install node
+# NEW SHELL
+npm install -g neovim
+
+# Perl neovim plugin
+brew install perl cpanminus
+brew link perl
+# NOW OPEN NEW SHELL
+cpanm -n Neovim::Ext
+
+# Python neovim plugin
+python3 -m pip install neovim
+
+# Ruby provider
+brew install ruby
+echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc
+# NEW SHELL
+gem install neovim
+
+# For lazy.nvim, install luarocks
+# Needs lua 5.1: you must compile it and make the lua executable link to lua5.1 on you path
+wget https://www.lua.org/ftp/lua-5.1.5.tar.gz
+make macosx
+make INSTALL_TOP=$HOME/<install_dir> install
+ln -s $HOME/<install_dir>/bin/lua ~/.local/bin/lua5.1
+brew install lua@5.1
+# install luarocks
+brew install luarocks
+
+New shell
+```
+
 ## Important shortcuts
 Press these shortcuts and wait for help to show of specific commands.
 

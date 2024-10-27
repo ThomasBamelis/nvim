@@ -1,6 +1,0 @@
-require('keybinds.navigation')
-require('keybinds.searching')
-require('keybinds.debugging')
-require('keybinds.compiling')
-require('keybinds.code_completion')
-require('keybinds.code_navigation')
