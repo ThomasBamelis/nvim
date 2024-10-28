@@ -11,7 +11,7 @@ LocalLeader = ,
 
 | Key after leader | subcategory |
 | ---------------- | ----------- |
-| Ctrl + {hjkl}    | Move between open windows and nvim terminal|
+| Ctrl + {hjkl}    | Move between open windows and terminal|
 | Ctrl + {io}      | Move between buffers |
 | Ctrl (+ Option on mac) + arrow keys| Resize current window |
 | Ctrl + {s}       | Save file |
@@ -29,6 +29,7 @@ LocalLeader = ,
 | Leader + q       | Quiting things |
 | Leader + n       | Notification (noice and nvim-notify) |
 | Leader + a       | File explorer (neo-tree)|
+| Leader + t       | Terminal (toggle-term) |
 | s                | search/find |
 |                  |             |
 
