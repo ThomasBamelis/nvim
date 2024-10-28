@@ -30,6 +30,7 @@ LocalLeader = ,
 | Leader + n       | Notification (noice and nvim-notify) |
 | Leader + a       | File explorer (neo-tree)|
 | Leader + t       | Terminal (toggle-term) |
+| Leader + s       | Search in file (flash) |
 | s                | search/find |
 |                  |             |
 
