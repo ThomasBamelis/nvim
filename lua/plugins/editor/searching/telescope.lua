@@ -9,7 +9,7 @@ return {
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
 			},
-			{"nvim-telescope/telescope-project.nvim"}
+			{ "nvim-telescope/telescope-project.nvim" },
 		},
 		opts = function(_, opts)
 			-- Load the faster locally compiled fuzzy finder
@@ -17,48 +17,45 @@ return {
 			require("telescope").load_extension("project")
 		end,
 		keys = {
-			{
-				"<leader>,",
-				"<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
-				desc = "Switch Buffer",
-			},
-			{ "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Grep (Root Dir)" },
-			{ "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-			{ "<leader><space>", "<cmd>Telescope find_files<cr>", desc = "Find Files (Root Dir)" },
+			{ "<leader>f", "<leader>f", desc = "Find stuff (Telescope & todo-comments)" }, -- which key
 			-- find
-			{ "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
-			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-			{ "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Find Files (git-files)" },
-			{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+			{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Grep (Root Dir)" },
+			{ "<leader>fh", "<cmd>Telescope command_history<cr>", desc = "Find in command history" },
+			{
+				"<leader>fB",
+				"<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
+				desc = "Find open buffers",
+			},
+			{ "<leader>fa", "<cmd>Telescope find_files<cr>", desc = "Find files (Root Dir)" },
+			{ "<leader>ff", "<cmd>Telescope git_files<cr>", desc = "Find files (in current git repo)" },
+			{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Find recently opened files" },
 			--{ "<leader>fR", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
-			-- git
-			{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
-			{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Status" },
+			-- git: I don't want git stuff managed by telescope
+			--{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
+			--{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Status" },
 			-- search
-			{ '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
-			{ "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
-			{ "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
-			{ "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-			{ "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
-			{ "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
-			{ "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics" },
-			{ "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Grep (Root Dir)" },
+			{ "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Find in register contents" },
+			{ "<leader>fA", "<cmd>Telescope autocommands<cr>", desc = "Find Auto Commands" },
+			{ "<leader>fb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Find in current buffer" },
+			{ "<leader>fc", "<cmd>Telescope commands<cr>", desc = "Find commands" },
+			{ "<leader>fd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Find in diagnostics (current file)" },
+			{ "<leader>fD", "<cmd>Telescope diagnostics<cr>", desc = "Find in diagnostics (workspace)" },
 			--{ "<leader>sG", LazyVim.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
-			{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
-			{ "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
-			{ "<leader>sj", "<cmd>Telescope jumplist<cr>", desc = "Jumplist" },
-			{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
-			{ "<leader>sl", "<cmd>Telescope loclist<cr>", desc = "Location List" },
-			{ "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
-			{ "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
-			{ "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
-			{ "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
-			{ "<leader>sq", "<cmd>Telescope quickfix<cr>", desc = "Quickfix List" },
+			{ "<leader>f?", "<cmd>Telescope help_tags<cr>", desc = "Find in help pages" },
+			--{ "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
+			--{ "<leader>sj", "<cmd>Telescope jumplist<cr>", desc = "Jumplist" },
+			{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Find in keymaps" },
+			{ "<leader>fl", "<cmd>Telescope loclist<cr>", desc = "Find in location list" },
+			{ "<leader>fm", "<cmd>Telescope man_pages<cr>", desc = "Find in man pages" },
+			--{ "<leader>sM", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
+			{ "<leader>fo", "<cmd>Telescope vim_options<cr>", desc = "Find in vim options" },
+			{ "<leader>fx", "<cmd>Telescope resume<cr>", desc = "Resume previous find" },
+			{ "<leader>fq", "<cmd>Telescope quickfix<cr>", desc = "Find in quickfix list" },
 		},
 	},
 
 	{
-	    "nvim-telescope/telescope-file-browser.nvim",
-	    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+		"nvim-telescope/telescope-file-browser.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 	},
 }

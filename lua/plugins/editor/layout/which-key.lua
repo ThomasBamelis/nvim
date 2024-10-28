@@ -11,6 +11,10 @@ return {
 			-- your configuration comes here
 			-- or leave it empty to use the default settings
 			-- refer to the configuration section below
+			keys = {
+				scroll_down = "<c-9>", -- binding to scroll down inside the popup
+				scroll_up = "<c-0>", -- binding to scroll up inside the popup
+			},
 		},
 		keys = {
 			{
