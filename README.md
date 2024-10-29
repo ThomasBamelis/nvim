@@ -33,7 +33,7 @@ LocalLeader = ,
 | Leader + s       | Search in file (flash) |
 | Leader + f       | Find file/grep/docs (Telescope, Todo-comments) |
 | Leader + e       | Format files (conform) |
-| s                | search/find |
+| s                | But things in braces, quotes... (mini.surround) |
 |                  |             |
 
 ## What to install

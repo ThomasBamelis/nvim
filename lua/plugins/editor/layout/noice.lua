@@ -32,18 +32,18 @@ return {
     },
     -- stylua: ignore
     keys = {
-      { "<leader>" .. leader_key,    "<leader>" .. leader_key,                                                      desc = "Notifications (noice and nvim-notify)" },        -- for which key
-      { "<leader>" .. leader_key .. "e", function() require("noice").redirect(vim.fn.getcmdline()) end,             mode = "c",                                    desc = "Redirect Cmdline (S-enter)" },
-      { "<S-Enter>",                 function() require("noice").redirect(vim.fn.getcmdline()) end,                 mode = "c",                                    desc = "Redirect Cmdline" },
-      { "<leader>" .. leader_key .. "l", function() require("noice").cmd("last") end,                               desc = "Noice Last Message" },
-      { "<leader>" .. leader_key .. "h", function() require("noice").cmd("history") end,                            desc = "Noice History" },
-      { "<leader>" .. leader_key .. "a", function() require("noice").cmd("all") end,                                desc = "Noice All" },
-      { "<leader>" .. leader_key .. "d", function() require("noice").cmd("dismiss") end,                            desc = "Noice Dismiss All" },
-      { "<leader>" .. leader_key .. "t", function() require("noice").cmd("pick") end,                               desc = "Noice Picker (Telescope/FzfLua)" },
-      { "<leader>" .. leader_key .. "f", function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, silent = true,                              expr = true,                        desc = "Scroll Forward (c-f)",  mode = { "n" } },
-      { "<c-f>",                     function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end,  silent = true,                                 expr = true,                        desc = "Scroll Forward",        mode = { "i", "n", "s" } },
-      { "<leader>" .. leader_key .. "b", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true,                             expr = true,                        desc = "Scroll Backward (c-b)", mode = { "n" } },
-      { "<c-b>",                     function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true,                                 expr = true,                        desc = "Scroll Backward",       mode = { "i", "n", "s" } },
+      { "<leader>" .. leader_key,        "<leader>" .. leader_key,                                                      desc = "Notifications (noice and nvim-notify)" }, -- for which key
+      { "<leader>" .. leader_key .. "e", function() require("noice").redirect(vim.fn.getcmdline()) end,                 mode = "c",                                    desc = "Redirect Cmdline (S-enter)" },
+      { "<S-Enter>",                     function() require("noice").redirect(vim.fn.getcmdline()) end,                 mode = "c",                                    desc = "Redirect Cmdline" },
+      { "<leader>" .. leader_key .. "l", function() require("noice").cmd("last") end,                                   desc = "Noice Last Message" },
+      { "<leader>" .. leader_key .. "h", function() require("noice").cmd("history") end,                                desc = "Noice History" },
+      { "<leader>" .. leader_key .. "a", function() require("noice").cmd("all") end,                                    desc = "Noice All" },
+      { "<leader>" .. leader_key .. "d", function() require("noice").cmd("dismiss") end,                                desc = "Noice Dismiss All" },
+      { "<leader>" .. leader_key .. "t", function() require("noice").cmd("pick") end,                                   desc = "Noice Picker (Telescope/FzfLua)" },
+      { "<leader>" .. leader_key .. "f", function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end,  silent = true,                                 expr = true,                        desc = "Scroll Forward (c-f)",  mode = { "n" } },
+      { "<c-f>",                         function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end,  silent = true,                                 expr = true,                        desc = "Scroll Forward",        mode = { "i", "n", "s" } },
+      { "<leader>" .. leader_key .. "b", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true,                                 expr = true,                        desc = "Scroll Backward (c-b)", mode = { "n" } },
+      { "<c-b>",                         function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true,                                 expr = true,                        desc = "Scroll Backward",       mode = { "i", "n", "s" } },
     },
     config = function(_, opts)
       -- HACK: noice shows messages from before it was enabled,

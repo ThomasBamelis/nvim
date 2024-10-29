@@ -6,18 +6,18 @@ return {
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     keys = {
-      { "<leader>" .. leader_key,    "<leader>e",                                     desc = "Format code (conform)" }, -- for which key
+      { "<leader>" .. leader_key,        "<leader>e",                                     desc = "Format code (conform)" }, -- for which key
       -- Customize or remove this keymap to your liking
       {
         "<leader>" .. leader_key .. "f",
         function()
           require("conform").format({ async = true })
         end,
-        mode = "",
+        mode = "n",
         desc = "Format buffer",
       },
       { "<leader>" .. leader_key .. "e", function() vim.g.disable_autoformat = false end, desc = "Enable format on save" },
-      { "<leader>" .. leader_key .. "d", function() vim.g.disable_autoformat = true end, desc = "Disable format on save" },
+      { "<leader>" .. leader_key .. "d", function() vim.g.disable_autoformat = true end,  desc = "Disable format on save" },
     },
     -- This will provide type hinting with LuaLS
     ---@module "conform"
