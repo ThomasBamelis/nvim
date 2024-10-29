@@ -31,6 +31,8 @@ LocalLeader = ,
 | Leader + a       | File explorer (neo-tree)|
 | Leader + t       | Terminal (toggle-term) |
 | Leader + s       | Search in file (flash) |
+| Leader + f       | Find file/grep/docs (Telescope, Todo-comments) |
+| Leader + e       | Format files (conform) |
 | s                | search/find |
 |                  |             |
 
@@ -111,13 +113,35 @@ Lazy.nvim gives the opts and keys for setting the options and keymaps without ca
 ## Language servers
 Language servers are configured in lua/plugins/coding/language-servers.
 We use 5 plugins for that:
-- mason: installs the language servers. 
+- mason: installs the language servers, linters and formatters. 
 - mason-lspconfig: makes the mason language servers ready for nvim-lspconfig
 - nvim-lspconfig: uses and configures the language servers
 - nvim-treesitter: syntax highlighting
 - nvim-cmp: provides the completion
+- conform.nvim: formatting code
 
 To add a language you have to add it to the ensure_installed of mason-lspconfig, nvim-lspconfig and nvim-treesitter.
+To add formatting, add it to formatters_by_ft in conform.nvim.
+
+### Language servers and formatters currently installed
+
+| Language  | Language server | Formatter     |
+| --------- | --------------- | ------------- |
+| Bash (.sh)| bashls          | shfmt         |
+| Python    | pyright         | isort, black  |
+| C/C++     | clangd          | clang-format  |
+| assembly  | asm_lsp         | asmfmt        |
+| CMake     | cmake           | cmake-format  |
+| Docker    | dockerls  docker_compose_language_service | |
+| JSON      | jsonls          | deno_fmt      |
+| Lua       | lua_ls          | stylua        |
+| Markdown  | marksman        | deno_fmt      |
+| Meson     | mesonlsp        |               |
+| Rust      | rust_analyzer   | rustfmt       |
+| Verilog   | verible         | verible       |
+
+All run codespell.
+The ones without formatter all run trim_whitespace.
 
 ## Searching
 Telescope, todo,...

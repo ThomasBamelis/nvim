@@ -1,3 +1,4 @@
+local leader_key = "t"
 return {
   {
     'akinsho/toggleterm.nvim',
@@ -54,22 +55,22 @@ return {
     end,
     -- stylua: ignore start
     keys = {
-      { "<leader>t",  "<leader>t",                                                       desc = "Terminal (ToggleTerm)",                  mode = { "n" } }, -- for which-key
-      { "<leader>ti", '<cmd>lua _toggleterm_cmd("")<cr>',                                desc = "Init all terminals",                     mode = { "n" } },
-      { "<leader>tt", '<cmd>lua _toggleterm_cmd("ToggleTermToggleAll")<cr>',             desc = "Show/hide all terminals (C-t)",          mode = { "n" } },
-      { "<C-t>",      '<cmd>lua _toggleterm_cmd("ToggleTermToggleAll")<cr>',             desc = "Show/hide all terminals",                mode = { "n", "t" } },
-      { "<leader>tm", '<cmd>lua _toggleterm_cmd("1ToggleTerm")<cr>',                     desc = "Open/focus main terminal",               mode = { "n" } },
-      { "<leader>t1", '<cmd>lua _toggleterm_cmd("TermSelect 1")<cr>',                    desc = "Open/focus main terminal",               mode = { "n" } },
-      { "<leader>tl", '<cmd>lua _toggleterm_cmd("ToggleTermSendCurrentLine 1")<cr>',     desc = "Send line to main terminal",             mode = { "n" } },
-      { "<leader>tv", '<cmd>lua _toggleterm_cmd("ToggleTermSendVisualLines 1")<cr>',     desc = "Send visual block to main terminal",     mode = { "n" } },
-      { "<leader>ts", '<cmd>lua _toggleterm_cmd("ToggleTermSendVisualSelection 1")<cr>', desc = "Send visual selection to main terminal", mode = { "n" } },
+      { "<leader>" .. leader_key,    "<leader>" .. leader_key,                                          desc = "Terminal (ToggleTerm)",                  mode = { "n" } },        -- for which-key
+      { "<leader>" .. leader_key .. "i", '<cmd>lua _toggleterm_cmd("")<cr>',                            desc = "Init all terminals",                     mode = { "n" } },
+      { "<leader>" .. leader_key .. "t", '<cmd>lua _toggleterm_cmd("ToggleTermToggleAll")<cr>',         desc = "Show/hide all terminals (C-t)",          mode = { "n" } },
+      { "<C-t>",                     '<cmd>lua _toggleterm_cmd("ToggleTermToggleAll")<cr>',             desc = "Show/hide all terminals",                mode = { "n", "t" } },
+      { "<leader>" .. leader_key .. "m", '<cmd>lua _toggleterm_cmd("1ToggleTerm")<cr>',                 desc = "Open/focus main terminal",               mode = { "n" } },
+      { "<leader>" .. leader_key .. "1", '<cmd>lua _toggleterm_cmd("TermSelect 1")<cr>',                desc = "Open/focus main terminal",               mode = { "n" } },
+      { "<leader>" .. leader_key .. "l", '<cmd>lua _toggleterm_cmd("ToggleTermSendCurrentLine 1")<cr>', desc = "Send line to main terminal",             mode = { "n" } },
+      { "<leader>" .. leader_key .. "v", '<cmd>lua _toggleterm_cmd("ToggleTermSendVisualLines 1")<cr>', desc = "Send visual block to main terminal",     mode = { "n" } },
+      { "<leader>" .. leader_key .. "s", '<cmd>lua _toggleterm_cmd("ToggleTermSendVisualSelection 1")<cr>', desc = "Send visual selection to main terminal", mode = { "n" } },
       --{ "<C-h>",      "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle terminal",               mode = { "n", "t" } },
-      { "<esc><esc>", "<c-\\><c-n>",                                                     desc = "Enter Normal Mode",                      mode = { "t" } },
-      { "<C-h>",      "<cmd>wincmd h<cr>",                                               desc = "Go to Left Window",                      mode = { "t" } },
-      { "<C-w>",      "<cmd><C-\\><C-n><C-w><cr>",                                       desc = "Enter normal mode and window?",          mode = { "t" } },
-      { "<C-j>",      "<cmd>wincmd j<cr>",                                               desc = "Go to Lower Window",                     mode = { "t" } },
-      { "<C-k>",      "<cmd>wincmd k<cr>",                                               desc = "Go to Upper Window",                     mode = { "t" } },
-      { "<C-l>",      "<cmd>wincmd l<cr>",                                               desc = "Go to Right Window",                     mode = { "t" } },
+      { "<esc><esc>",                "<c-\\><c-n>",                                                     desc = "Enter Normal Mode",                      mode = { "t" } },
+      { "<C-h>",                     "<cmd>wincmd h<cr>",                                               desc = "Go to Left Window",                      mode = { "t" } },
+      { "<C-w>",                     "<cmd><C-\\><C-n><C-w><cr>",                                       desc = "Enter normal mode and window?",          mode = { "t" } },
+      { "<C-j>",                     "<cmd>wincmd j<cr>",                                               desc = "Go to Lower Window",                     mode = { "t" } },
+      { "<C-k>",                     "<cmd>wincmd k<cr>",                                               desc = "Go to Upper Window",                     mode = { "t" } },
+      { "<C-l>",                     "<cmd>wincmd l<cr>",                                               desc = "Go to Right Window",                     mode = { "t" } },
       --{ "<C-/>",      "<cmd>close<cr>",                           desc = "Hide Terminal",                          mode = { "t" } },
       --{ "<c-_>",      "<cmd>close<cr>",                           desc = "which_key_ignore",                       mode = { "t" } },
     },

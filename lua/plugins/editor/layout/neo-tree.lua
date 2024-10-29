@@ -1,3 +1,4 @@
+local leader_key = "a"
 return {
   -- File explorer
   {
@@ -11,11 +12,11 @@ return {
     },
     -- stylua: ignore
     keys = {
-      { "<leader>a",  "<leader>a",                                      desc = "File explorer" }, -- for which key
-      { "<leader>as", "<cmd>Neotree reveal toggle<cr>",                 desc = "Show/hide file explorer" },
-      { "<leader>af", "<cmd>Neotree toggle float reveal_force_cwd<cr>", desc = "Show/hide file explorer in dir of current file" },
-      { "<leader>ab", "<cmd>Neotree toggle show buffers right<cr>",     desc = "Show/hide open buffers in file explorer" },
-      { "<leader>ag", "<cmd>Neotree float git_status<cr>",              desc = "Show/hide git status output in file explorer" },
+      { "<leader>" .. leader_key,    "<leader>" .. leader_key,                         desc = "File explorer" },        -- for which key
+      { "<leader>" .. leader_key .. "s", "<cmd>Neotree reveal toggle<cr>",             desc = "Show/hide file explorer" },
+      { "<leader>" .. leader_key .. "f", "<cmd>Neotree toggle float reveal_force_cwd<cr>", desc = "Show/hide file explorer in dir of current file" },
+      { "<leader>" .. leader_key .. "b", "<cmd>Neotree toggle show buffers right<cr>", desc = "Show/hide open buffers in file explorer" },
+      { "<leader>" .. leader_key .. "g", "<cmd>Neotree float git_status<cr>",          desc = "Show/hide git status output in file explorer" },
     },
     --[[
     nnoremap / :Neotree toggle current reveal_force_cwd<cr>
