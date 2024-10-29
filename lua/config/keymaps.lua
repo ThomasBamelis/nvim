@@ -81,9 +81,12 @@ map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Commen
 map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Above" })
 
 -- lazy
-map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
+map("n", "<leader>p", "<leader>p", { desc = "Packages (lazy,mason)" }) -- which key
+map("n", "<leader>pl", "<cmd>Lazy<cr>", { desc = "Lazy.nvim" })
 
-map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
+local leader_key_locationlist = "F"
+map("n", "<leader>" .. leader_key_locationlist, "<leader>" .. leader_key_locationlist, { desc = "Location list" }) -- for which key
+map("n", "<leader>" .. leader_key_locationlist .. "o", "<cmd>lopen<cr>", { desc = "Open location list" })
 
 -- Quickfixing
 local leader_key_quickfixlist = "F"
@@ -106,9 +109,9 @@ local diagnostic_goto = function(next, severity)
     go({ severity = severity })
   end
 end
-local leader_key_diagnostics = "d"
-map("n", "<leader>" .. leader_key_diagnostics, "<leader>" .. leader_key_diagnostics, { desc = "Diagnostics List" })
-map("n", "<leader>" .. leader_key_diagnostics .. "o", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+local leader_key_diagnostics = "c"
+map("n", "<leader>" .. leader_key_diagnostics, "<leader>" .. leader_key_diagnostics, { desc = "Coding (lsp)" }) -- for which key
+map("n", "<leader>" .. leader_key_diagnostics .. "o", vim.diagnostic.open_float, { desc = "Show diagnostics for line" })
 map("n", "<leader>" .. leader_key_diagnostics .. "j", diagnostic_goto(true), { desc = "Next Diagnostic (]d)" })
 map("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
 map("n", "<leader>" .. leader_key_diagnostics .. "k", diagnostic_goto(false), { desc = "Prev Diagnostic ([d)" })
@@ -150,8 +153,10 @@ map("n", "<leader>qB", "<cmd>:bp<bar>sp<bar>bn<bar>bd<CR>", { desc = "Delete Buf
 map("n", "<leader>qt", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
 -- highlights under cursor
-map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
-map("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
+local leader_key_inspect = "i"
+map("n", "<leader>" .. leader_key_inspect, "<leader>" .. leader_key_inspect, { desc = "Inspect" })
+map("n", "<leader>" .. leader_key_inspect .. "i", vim.show_pos, { desc = "Inspect position under cursor" })
+map("n", "<leader>" .. leader_key_inspect .. "I", "<cmd>InspectTree<cr>", { desc = "Inspect tree" })
 
 -- Terminal Mappings: we are using ToggleTerm for terminal stuff
 --map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
@@ -211,7 +216,7 @@ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsea
 -- taken from runtime/lua/_editor.lua
 map(
   "n",
-  "<leader>ur",
+  "<leader>=",
   "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
   { desc = "Redraw / Clear hlsearch / Diff Update" }
 )

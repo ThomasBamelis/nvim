@@ -6,6 +6,9 @@ The biggest problem with using vim is remembering the keybinds.
 But don't worry, the plugin which-key.nvim will show you what happens for different keys after you press the leader key!
 That still can get messy, so record in this table the logical subcategories and stick to them.
 
+Just press spacebar and you will get the keybinds.
+EVEN BETTER: press spacebar and then backspace and it will show info for ALL keys to be pressed, even normal nvim keys and CTRL keybinds!
+
 Leader = Spacebar
 LocalLeader = ,
 
@@ -22,10 +25,9 @@ LocalLeader = ,
 | Leader + b       | Buffers (bufferline) |
 | Leader + B       | Buffers (DONT USE -> bufferline) |
 | Leader + \<tab\>   | Tabs |
-| Leader + L       | lazy.nvim   |
+| Leader + p       | Packages (lazy.nvim, mason)   |
 | Leader + l       | Location list |
 | Leader + F       | Quickfix list |
-| Leader + d       | Diagnostics list |
 | Leader + q       | Quiting things |
 | Leader + n       | Notification (noice and nvim-notify) |
 | Leader + a       | File explorer (neo-tree)|
@@ -33,8 +35,9 @@ LocalLeader = ,
 | Leader + s       | Search in file (flash) |
 | Leader + f       | Find file/grep/docs (Telescope, Todo-comments) |
 | Leader + e       | Format files (conform) |
-| s                | But things in braces, quotes... (mini.surround) |
-|                  |             |
+| Leader + c       | Coding (lspconfig, diagnostics, telescope)|
+| Leader + ;       | But things in braces, quotes... (mini.surround) |
+| Leader + i       | Inspect |
 
 ## What to install
 ### MAC
