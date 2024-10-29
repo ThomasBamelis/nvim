@@ -2,6 +2,8 @@
 
 local map = vim.keymap.set
 
+map("i", "jj", "<Esc>", { desc = "Remap ESC in insert mode", remap = true })
+
 local leader_key_windows = "w"
 -- windows
 map("n", "<leader>" .. leader_key_windows, "<c-w>", { desc = "Windows", remap = true }) -- Helps which-key to give a better name
