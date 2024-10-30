@@ -77,6 +77,16 @@ M.config = function()
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 	end
 
+	-- Manually installed language servers
+	-- cargo install ginko_ls
+	lspconfig.ginko_ls.setup({
+		-- on_attach not needed due to autocmd
+		capabilities = capabilities,
+		settings = {
+			["ginko_ls"] = {},
+		},
+	})
+
 	-- Setup the language servers
 	mason_lspconfig.setup_handlers({
 		-- default handler for installed servers
