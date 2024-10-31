@@ -13,6 +13,8 @@ return {
       -- Pass opts
       require("toggleterm").setup(opts)
 
+      -- THOMAS TODO: rework by looking at this guy, the terminal keymaps don't work and he doesn't need his own function to start the terminals: https://github.com/krshrimali/nvim/blob/master/lua/user/toggleterm.lua
+
       -- Create predefined terminals
       local Terminal            = require('toggleterm.terminal').Terminal
       local main                = Terminal:new {
@@ -65,7 +67,8 @@ return {
       { "<leader>" .. leader_key .. "v", '<cmd>lua _toggleterm_cmd("ToggleTermSendVisualLines 1")<cr>', desc = "Send visual block to main terminal",     mode = { "n" } },
       { "<leader>" .. leader_key .. "s", '<cmd>lua _toggleterm_cmd("ToggleTermSendVisualSelection 1")<cr>', desc = "Send visual selection to main terminal", mode = { "n" } },
       --{ "<C-h>",      "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle terminal",               mode = { "n", "t" } },
-      { "<esc><esc>",                "<c-\\><c-n>",                                                     desc = "Enter Normal Mode",                      mode = { "t" } },
+      { "<esc><esc>",                [[<C-\><C-n>]],                                                     desc = "Enter Normal Mode",                      mode = { "t" } },
+      { "jj",                [[<C-\><C-n>]],                                                     desc = "Enter Normal Mode",                      mode = { "t" } },
       { "<C-h>",                     "<cmd>wincmd h<cr>",                                               desc = "Go to Left Window",                      mode = { "t" } },
       { "<C-w>",                     "<cmd><C-\\><C-n><C-w><cr>",                                       desc = "Enter normal mode and window?",          mode = { "t" } },
       { "<C-j>",                     "<cmd>wincmd j<cr>",                                               desc = "Go to Lower Window",                     mode = { "t" } },

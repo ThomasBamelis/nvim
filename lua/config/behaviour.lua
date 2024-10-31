@@ -142,7 +142,7 @@ opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "glob
 
 opt.showmode = false -- Dont show mode since we have a statusline
 
-opt.timeoutlen = vim.g.vscode and 1000 or 300 -- Lower than default (1000) to quickly trigger which-key
+opt.timeoutlen = vim.g.vscode and 1000 or 30 -- Lower than default (1000) to quickly trigger which-key
 opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current

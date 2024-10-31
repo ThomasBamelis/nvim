@@ -28,7 +28,7 @@ return {
     keys = {
       { "<leader>" .. leader_key,    "<leader>" .. leader_key,                  desc = "Buffers (bufferline)" },        -- for which key
       { "<leader>" .. leader_key .. "p", "<Cmd>BufferLineTogglePin<CR>",        desc = "Toggle Pin" },
-      { "<leader>" .. leader_key .. "d", "<cmd>:bp<bar>sp<bar>bn<bar>bd<CR>",   desc = "Close current buffer (C-p)" },
+      { "<leader>" .. leader_key .. "q", "<cmd>:bp<bar>sp<bar>bn<bar>bd<CR>",   desc = "Close current buffer (C-p)" },
       { "<leader>qb",                "<cmd>:bp<bar>sp<bar>bn<bar>bd<CR>",       desc = "Close current buffer (C-p, <Leader>qb)" },
       { "<C-p>",                     "<cmd>:bp<bar>sp<bar>bn<bar>bd<CR>",       desc = "Close current buffer" },
       { "<leader>" .. leader_key .. "P", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete Non-Pinned Buffers" },
