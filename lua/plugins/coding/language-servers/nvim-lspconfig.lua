@@ -14,6 +14,7 @@ local M = {
 M.config = function()
 	-- import lspconfig plugin
 	local lspconfig = require("lspconfig")
+	local configs = require("lspconfig.configs")
 
 	-- import mason_lspconfig plugin
 	local mason_lspconfig = require("mason-lspconfig")
@@ -23,6 +24,15 @@ M.config = function()
 
 	-- Tell nvim-cmp about the capabilities of the language server
 	local capabilities = cmp_nvim_lsp.default_capabilities()
+
+  -- Function to check if we have armls file
+  local armls_path = vim.fn.stdpath("config") .. "/lua/plugins/coding/language-servers/armls.vsix"
+  local have_armls = false
+  local f=io.open(armls_path,"r")
+  if f~=nil then
+    io.close(f)
+    have_armls = true
+  end
 
 	-- Setup the keybinds
 	local keymap = vim.keymap
@@ -78,6 +88,26 @@ M.config = function()
 	end
 
 	-- Manually installed language servers
+  -- armls
+  if have_armls then
+  configs.armls = {
+    default_config = {
+      cmd = { armls_path },
+      root_dir = lspconfig.util.root_pattern(".git"),
+      filetypes = { "asm" },
+    },
+  }
+  configs.armls.setup({
+      capabilities = capabilities,
+      settings = {
+          armls = {
+              -- Uncomment to enable diagnostics, which are disabled by default
+              -- enableDiagnostics = true,
+          },
+      },
+  })
+  end
+
 	-- cargo install ginko_ls
 	lspconfig.ginko_ls.setup({
 		-- on_attach not needed due to autocmd
