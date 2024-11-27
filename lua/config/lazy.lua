@@ -30,10 +30,15 @@ require("lazy").setup({
 		{ import = "plugins.editor.searching" },
 		{ import = "plugins.coding.editing" },
 		{ import = "plugins.coding.language-servers" },
+		{ import = "plugins.coding.copilot" },
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
 	install = { colorscheme = { "gruvbox" } },
 	-- automatically check for plugin updates
 	checker = { enabled = true },
+  -- Luarocks
+  rocks = {
+    enabled = true,
+  },
 })
